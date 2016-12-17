@@ -1,2 +1,41 @@
-.header {
-  background-color: red; }
+.navbar-default {
+  background-color: #2A2C2B;
+  height: 60px; }
+  .navbar-default .navbar-brand {
+    color: white;
+    margin-right: 20px; }
+  .navbar-default .navbar-brand:hover {
+    color: white; }
+  .navbar-default .navbar-nav > li {
+    padding-left: 10px;
+    padding-right: 10px; }
+  .navbar-default .navbar-nav > li:hover a {
+    background-color: #2A2C2B;
+    border-bottom: 4px solid white; }
+  .navbar-default .navbar-nav > li > a {
+    color: white;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 5px; }
+  .navbar-default .navbar-nav > li > a:hover {
+    color: white; }
+  .navbar-default .navbar-nav > .active:hover a {
+    background-color: #2A2C2B;
+    color: white; }
+  .navbar-default .navbar-nav > .active > a {
+    color: white;
+    background-color: #2A2C2B;
+    border-bottom: 4px solid white; }
+  .navbar-default .navbar-nav > .active:hover > a {
+    color: white; }
+  .navbar-default .navbar-nav > .open > a {
+    color: white;
+    background-color: #2A2C2B; }
+  .navbar-default .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-default .navbar-nav > .open > a:hover {
+    color: white;
+    background-color: #2A2C2B; }
+  .navbar-default .navbar-nav .dropdown.open > a {
+    color: white;
+    background-color: #2A2C2B; }
+  .navbar-default .dropdown-menu > li > a {
+    background-color: #fff !important; }
