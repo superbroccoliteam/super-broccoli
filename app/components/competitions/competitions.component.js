@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var CalendarComponent = (function () {
-    function CalendarComponent() {
+var CompetitionsComponent = (function () {
+    function CompetitionsComponent() {
     }
-    CalendarComponent = __decorate([
+    CompetitionsComponent = __decorate([
         core_1.Component({
-            selector: 'calendar',
-            template: "\n    \n    <section class=\"sidebar\">\n        <header>\n            <div class=\"pull-left\">\n                    <p>Calendar</p>\n            </div>\n            <div class=\"pull-right\">\n                <a class=\"active\" href=\"#\">My Calendar</a>\n                <a href=\"#\">All matches</a>\n            </div>\n        </header>\n        <calendar-item></calendar-item>\n    </section>\n    "
+            selector: 'competitions',
+            template: '<h1>Competitions</h1>'
         }), 
         __metadata('design:paramtypes', [])
-    ], CalendarComponent);
-    return CalendarComponent;
+    ], CompetitionsComponent);
+    return CompetitionsComponent;
 }());
-exports.CalendarComponent = CalendarComponent;
-//# sourceMappingURL=calendar.component.js.map
+exports.CompetitionsComponent = CompetitionsComponent;
+//# sourceMappingURL=competitions.component.js.map

@@ -1,21 +1,7 @@
-import {Component, AfterViewInit} from '@angular/core'
-
-
-
-@Component({
-    selector: 'home',
-    template: ` 
-    
-        <slider></slider>
-        <news></news>
-    
-    
-    `
-})
-
-export class HomeComponent implements AfterViewInit{
-    ngAfterViewInit(){
-          var slideIndex = 1;
+/**
+ * Created by lukas on 28/12/2016.
+ */
+var slideIndex = 1;
 showSlides(slideIndex);
 
 function plusSlides(n) {
@@ -40,10 +26,4 @@ function showSlides(n) {
     }
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
-}
-
-
-
-
-    }
 }

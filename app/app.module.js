@@ -16,8 +16,18 @@ var navbar_component_1 = require('./shared/navbar/navbar.component');
 var home_component_1 = require('./components/home/home.component');
 var sidebar_component_1 = require('./shared/sidebar/sidebar.component');
 var calendar_component_1 = require('./shared/calendar-widget/calendar.component');
+var matches_component_1 = require('./components/matches/matches.component');
+var competitions_component_1 = require('./components/competitions/competitions.component');
+var games_component_1 = require('./components/games/games.component');
+var calendar_item_component_1 = require('./shared/calendar-widget/calendar-item.component');
+var slider_component_1 = require('./components/slider/slider.component');
+var news_component_1 = require('./components/news/news.component');
+var news_item_component_1 = require('./components/news-item/news-item.component');
 var appRoutes = [
     { path: 'home', component: home_component_1.HomeComponent },
+    { path: 'matches', component: matches_component_1.MatchesComponent },
+    { path: 'competitions', component: competitions_component_1.CompetitionsComponent },
+    { path: 'games', component: games_component_1.GamesComponent },
     { path: '', component: home_component_1.HomeComponent }
 ];
 var AppModule = (function () {
@@ -29,7 +39,20 @@ var AppModule = (function () {
                 router_1.RouterModule.forRoot(appRoutes),
                 platform_browser_1.BrowserModule
             ],
-            declarations: [app_component_1.AppComponent, navbar_component_1.NavbarComponent, home_component_1.HomeComponent, sidebar_component_1.SidebarComponent, calendar_component_1.CalendarComponent],
+            declarations: [
+                app_component_1.AppComponent,
+                navbar_component_1.NavbarComponent,
+                home_component_1.HomeComponent,
+                sidebar_component_1.SidebarComponent,
+                calendar_component_1.CalendarComponent,
+                matches_component_1.MatchesComponent,
+                competitions_component_1.CompetitionsComponent,
+                games_component_1.GamesComponent,
+                calendar_item_component_1.CalendarItemComponent,
+                slider_component_1.SliderComponent,
+                news_component_1.NewsComponent,
+                news_item_component_1.NewsItemComponent
+            ],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
