@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+# Dependency directories
+node_modules
+jspm_packages
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+.idea
+*.map
+.vs
+.vscode
+.DS_Store
+typings
+=======
 .idea/*
 config.codekit3
 
+>>>>>>> header
