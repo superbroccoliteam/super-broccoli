@@ -9,13 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var NewsItem_1 = require('../news/NewsItem');
 var NewsItemComponent = (function () {
     function NewsItemComponent() {
     }
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', NewsItem_1.NewsItem)
+    ], NewsItemComponent.prototype, "newsItem", void 0);
     NewsItemComponent = __decorate([
         core_1.Component({
             selector: 'news-item',
-            template: " \n    \n    <div class=\"row\">\n         <div class=\"col-sm-4\"><a href=\"#\" class=\"\"><img src=\"http://placehold.it/1280X720\" class=\"img-responsive\"></a>\n            </div>\n            <div class=\"col-sm-8\">\n                <h3 class=\"title\">How to Fight Fraud with Artificial Intelligence and Intelligent Analytics</h3>\n                <p class=\"text-muted\">3 december 2016</p>\n                <p>Could artificial intelligence have been used to prevent the high-profile Target breach? The concept is not so far-fetched. Organizations such as Mastercard and RBS WorldPay have long relied on artificial intelligence to detect fraudulent transaction patterns and prevent card.</p>\n\n                <p class=\"text-muted\">Presented by <a href=\"#\">Ellen Richey</a></p>\n\n            </div>\n    </div>\n    \n    "
+            template: " \n    \n    <div class=\"row\">\n         <div class=\"col-sm-4\"><a href=\"{{ newsItem.url }}\" class=\"\"><img src=\"{{ newsItem.urlToImage }}\" class=\"img-responsive\"></a>\n            </div>\n            <div class=\"col-sm-8\">\n                <h3 class=\"title\"><a href=\"{{ newsItem.url }}\">{{ newsItem.title }}</a></h3>\n                <p class=\"text-muted\">3 december 2016</p>\n                <p>{{ newsItem.description }}</p>\n\n                <p class=\"text-muted\">Presented by {{ newsItem.author }}</p>\n\n            </div>\n    </div>\n    \n    "
         }), 
         __metadata('design:paramtypes', [])
     ], NewsItemComponent);

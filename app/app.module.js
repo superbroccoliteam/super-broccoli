@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
+var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var navbar_component_1 = require('./shared/navbar/navbar.component');
 var home_component_1 = require('./components/home/home.component');
@@ -37,7 +38,8 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 router_1.RouterModule.forRoot(appRoutes),
-                platform_browser_1.BrowserModule
+                platform_browser_1.BrowserModule,
+                http_1.HttpModule
             ],
             declarations: [
                 app_component_1.AppComponent,

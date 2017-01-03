@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
 @NgModule({
   imports:      [ 
     RouterModule.forRoot(appRoutes),
-    BrowserModule 
+    BrowserModule ,
+    HttpModule
   ],
   declarations: [ 
   AppComponent, 

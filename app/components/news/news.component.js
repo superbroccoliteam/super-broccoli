@@ -9,15 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var news_service_1 = require('./news.service');
 var NewsComponent = (function () {
-    function NewsComponent() {
+    function NewsComponent(newsService) {
+        this.newsService = newsService;
     }
+    NewsComponent.prototype.ngOnInit = function () {
+        this.getNews();
+    };
+    NewsComponent.prototype.getNews = function () {
+        var _this = this;
+        this.newsService.getLatestNews()
+            .subscribe(function (res) { return _this.news = res.splice(0, 5); });
+    };
     NewsComponent = __decorate([
         core_1.Component({
             selector: 'news',
-            template: " \n    \n    <div class=\"row\">\n        <news-item></news-item>\n    </div>\n\n    "
+            template: " \n    \n    <div class=\"row\">\n        <news-item *ngFor=\"let item of news\" \n        [newsItem]=\"item\">\n        </news-item>\n    </div>\n\n    ",
+            providers: [news_service_1.NewsService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [news_service_1.NewsService])
     ], NewsComponent);
     return NewsComponent;
 }());
