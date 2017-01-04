@@ -24,10 +24,12 @@ var calendar_item_component_1 = require('./shared/calendar-widget/calendar-item.
 var slider_component_1 = require('./components/slider/slider.component');
 var news_component_1 = require('./components/news/news.component');
 var news_item_component_1 = require('./components/news-item/news-item.component');
+var competition_component_1 = require('./components/competition/competition.component');
 var appRoutes = [
     { path: 'home', component: home_component_1.HomeComponent },
     { path: 'matches', component: matches_component_1.MatchesComponent },
     { path: 'competitions', component: competitions_component_1.CompetitionsComponent },
+    { path: 'competition/:id', component: competition_component_1.CompetitionComponent },
     { path: 'games', component: games_component_1.GamesComponent },
     { path: '', component: home_component_1.HomeComponent }
 ];
@@ -39,7 +41,8 @@ var AppModule = (function () {
             imports: [
                 router_1.RouterModule.forRoot(appRoutes),
                 platform_browser_1.BrowserModule,
-                http_1.HttpModule
+                http_1.HttpModule,
+                http_1.JsonpModule
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -53,7 +56,8 @@ var AppModule = (function () {
                 calendar_item_component_1.CalendarItemComponent,
                 slider_component_1.SliderComponent,
                 news_component_1.NewsComponent,
-                news_item_component_1.NewsItemComponent
+                news_item_component_1.NewsItemComponent,
+                competition_component_1.CompetitionComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

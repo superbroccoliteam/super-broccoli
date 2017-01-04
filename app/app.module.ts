@@ -1,7 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -15,6 +15,7 @@ import { CalendarItemComponent } from './shared/calendar-widget/calendar-item.co
 import { SliderComponent } from './components/slider/slider.component';
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news-item/news-item.component';
+import { CompetitionComponent } from './components/competition/competition.component';
 
 
 
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'matches', component: MatchesComponent},
   { path: 'competitions', component: CompetitionsComponent},
+  { path: 'competition/:id', component: CompetitionComponent}
   { path: 'games', component: GamesComponent},
   { path: '', component: HomeComponent }
 ]
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
   imports:      [ 
     RouterModule.forRoot(appRoutes),
     BrowserModule ,
-    HttpModule
+    HttpModule,
+    JsonpModule
   ],
   declarations: [ 
   AppComponent, 
@@ -44,7 +47,8 @@ const appRoutes: Routes = [
   CalendarItemComponent,
   SliderComponent,
   NewsComponent,
-  NewsItemComponent
+  NewsItemComponent,
+  CompetitionComponent
  ],
   bootstrap:    [ AppComponent ]
 })

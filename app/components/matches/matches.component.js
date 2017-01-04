@@ -9,15 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var competition_service_1 = require('../competitions/competition.service');
+var matches_service_1 = require('./matches.service');
 var MatchesComponent = (function () {
-    function MatchesComponent() {
+    function MatchesComponent(competitionService, matchService) {
+        this.competitionService = competitionService;
+        this.matchService = matchService;
     }
+    MatchesComponent.prototype.ngOnInit = function () {
+        this.getCompetitions();
+    };
+    MatchesComponent.prototype.getCompetitions = function () {
+        var _this = this;
+        this.competitionService.getCompetitions()
+            .subscribe(function (response) { return _this.getMatches(response); });
+    };
+    MatchesComponent.prototype.getMatches = function (compRes) {
+        this.matchService.getMatches(compRes)
+            .subscribe(function (response) { return console.log(response); });
+    };
     MatchesComponent = __decorate([
         core_1.Component({
             selector: 'matches',
-            template: '<h1>Matches</h1>'
+            template: '<h1>Matches</h1>',
+            providers: [competition_service_1.CompetitionService, matches_service_1.MatchService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [competition_service_1.CompetitionService, matches_service_1.MatchService])
     ], MatchesComponent);
     return MatchesComponent;
 }());
