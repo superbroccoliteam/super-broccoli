@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';;
 import {CompetitionService} from './competition.service';
-import {Competition} from './Competition'
+import {Competition} from './Competition';
 
 @Component({
     selector: 'competitions',
@@ -43,6 +43,7 @@ export class CompetitionsComponent{
 
     ngOnInit() { 
         this.getCompetitions(); 
+
     }
 
     getCompetitions(){

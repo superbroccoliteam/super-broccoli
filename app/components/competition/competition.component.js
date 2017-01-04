@@ -33,4 +33,5 @@ var CompetitionComponent = (function () {
     return CompetitionComponent;
 }());
 exports.CompetitionComponent = CompetitionComponent;
+//Demo competition: 581a8506150ba0bd628b4579 
 //# sourceMappingURL=competition.component.js.map

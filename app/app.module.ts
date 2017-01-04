@@ -16,6 +16,10 @@ import { SliderComponent } from './components/slider/slider.component';
 import { NewsComponent } from './components/news/news.component';
 import { NewsItemComponent } from './components/news-item/news-item.component';
 import { CompetitionComponent } from './components/competition/competition.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './shared/guards/auth-guard.service';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AuthorizationService } from './components/login/authorization.service';
 
 
 
@@ -23,8 +27,10 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'matches', component: MatchesComponent},
   { path: 'competitions', component: CompetitionsComponent},
-  { path: 'competition/:id', component: CompetitionComponent}
+  { path: 'competition/:id', component: CompetitionComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'games', component: GamesComponent},
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   { path: '', component: HomeComponent }
 ]
 
@@ -48,8 +54,11 @@ const appRoutes: Routes = [
   SliderComponent,
   NewsComponent,
   NewsItemComponent,
-  CompetitionComponent
+  CompetitionComponent,
+  LoginComponent,
+  ProfileComponent
  ],
+  providers: [AuthGuard, AuthorizationService],
   bootstrap:    [ AppComponent ]
 })
 

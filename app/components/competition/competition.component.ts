@@ -30,3 +30,5 @@ export class CompetitionComponent implements OnInit{
     }
 
 }
+
+//Demo competition: 581a8506150ba0bd628b4579

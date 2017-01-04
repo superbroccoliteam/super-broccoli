@@ -44,7 +44,7 @@ var HomeComponent = (function () {
     HomeComponent = __decorate([
         core_1.Component({
             selector: 'home',
-            template: " \n    \n        <slider></slider>\n        <news></news>\n    \n    \n    "
+            template: " \n    \n        <slider></slider>\n        <news></news>\n    \n    "
         }), 
         __metadata('design:paramtypes', [])
     ], HomeComponent);
