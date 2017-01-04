@@ -12,17 +12,24 @@ var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/map');
 var CompetitionService = (function () {
-    function CompetitionService(http) {
+    function CompetitionService(http, jsonP) {
         this.http = http;
+        this.jsonP = jsonP;
         this.url = "https://api.toornament.com/v1/tournaments?api_key=iTIf7Qaq_YqyV0z76Pw_I0qiJsgY3Jemu53LqMo8Yrs";
     }
     CompetitionService.prototype.getCompetitions = function () {
         return this.http.get(this.url)
             .map(function (res) { return res.json(); });
     };
+    CompetitionService.prototype.getCompetition = function (competitionId) {
+        var competitionUrl = "https://api.toornament.com/v1/tournaments/" + competitionId + "?api_key=iTIf7Qaq_YqyV0z76Pw_I0qiJsgY3Jemu53LqMo8Yrs";
+        console.log(competitionUrl);
+        return this.http.get(competitionUrl)
+            .map(function (res) { return res.json(); });
+    };
     CompetitionService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [http_1.Http, http_1.Jsonp])
     ], CompetitionService);
     return CompetitionService;
 }());
