@@ -41,6 +41,20 @@ var CompetitionService = (function () {
             console.log(data.json());
         });
     };
+    CompetitionService.prototype.unfollowCompetition = function (competitionId, token) {
+        var competitionUrl = "https://nameless-harbor-45973.herokuapp.com/user/removecompetition";
+        var body = 'competitionId=' + competitionId;
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        headers.append('Authorization', token);
+        this.http
+            .post(competitionUrl, body, {
+            headers: headers
+        })
+            .subscribe(function (data) {
+            console.log(data.json());
+        });
+    };
     CompetitionService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http, http_1.Jsonp])

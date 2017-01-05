@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {AuthorizationService} from '../login/authorization.service';
 import {CompetitionService} from '../competitions/competition.service';
 import {Router} from '@angular/router';
@@ -96,6 +96,7 @@ import {Competition} from '../competitions/Competition';
                         <th>End date</th>
                         <th>Status</th>
                         <th></th>
+                        <th>Unfollow</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -107,6 +108,7 @@ import {Competition} from '../competitions/Competition';
                         <td>{{ competition?.date_end }}</td>
                         <td>{{ competition?.status }}</td>
                         <td><a [routerLink]="['/competition', competition?.id]" class="detailslink"><span class="glyphicon glyphicon-info-sign info-icon-details" aria-hidden="true"></span>Details</a></td>
+                        <td><a (click)="unfollowCompetition(competition.id)" >Unfollow</a></td>
                     </tr>
                 </tbody>
             </table>
@@ -121,7 +123,7 @@ import {Competition} from '../competitions/Competition';
 })
 
 export class ProfileComponent{
-    competitions: Competition[] = [];
+   @Input() competitions: Competition[] = [];
     
     constructor(private authorizationService: AuthorizationService, private router: Router, private competitionService: CompetitionService){}
 
@@ -162,6 +164,15 @@ export class ProfileComponent{
     done(data){
         this.competitions.push(data);
         console.log(this.competitions);
+    }
+
+    unfollowCompetition(id: number){
+         var userId = localStorage.getItem('user_id');
+        var token = localStorage.getItem('auth_token');
+
+        console.log("unfollow");
+        this.competitionService.unfollowCompetition(id.toString(),token);
+
     }
 
 }
