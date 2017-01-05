@@ -127,3 +127,29 @@ exports.addCompetitionByUserId = function (req, res) {
         else{res.status(200).send({message: "Succes"});}
     });
 };
+/**
+ * @apiDeescription Remove competition by posting id.
+ * @api {POST} /user/removecompetition
+ * @apiName Remove competition
+ * @apiGroup Authorization
+ *
+ * @apiParam {String} competitionId              The id of the competition.
+ *
+ * @apiParamExample {json} Request
+ * {
+ *     "competitionId": "123456789-abc",
+ * }
+ *  @apiHeader {String} Authorization JWT <code>token</code>
+ * @apiHeaderExample Headers
+ * {
+ *    "Authorization": "JWT token"
+ * }
+ */
+exports.removeCompetitionIdByUserId = function (req,res) {
+    if(req.user.token == null){return res.status(400).send({message: "wrong token"})}
+    req.checkBody('competitionId', 'invalid competitionId').notEmpty();
+    user.findByIdAndUpdate(req.user._id,{$pull:{competitions: req.body.competitionId}} ,function (err) {
+        if(err){res.status(500).send({message: err});}
+        else{res.status(200).send({message: "Succes"});}
+    });
+};

@@ -60,7 +60,9 @@ module.exports = function (app,io) {
     app.get('/user/:userId' ,passport.authenticate('jwt',{session: false}), userController.getUserById);
     app.post('/user/changepassword' , passport.authenticate('jwt',{session: false}), userController.changePassword);
     app.post('/user/addcompetition',passport.authenticate('jwt',{session: false}),userController.addCompetitionByUserId);
-   /*
+    app.post('/user/removecompetition',passport.authenticate('jwt',{session: false}),userController.removeCompetitionIdByUserId);
+
+    /*
    NIET NODIG
     //Games
     app.get('/games/all', passport.authenticate('jwt',{session: false}),gameController.getAllGames);
