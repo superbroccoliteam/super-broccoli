@@ -6,10 +6,26 @@ import {Router} from '@angular/router'
 @Component({
     selector: 'competitions',
     template: ` 
-        <h1>Login</h1>
-        <input id="txtEmail" type="text" placeholder="email" />
-        <input id="txtPassword" type="password" placeholder="password" />
-        <button (click)="onClick()">Log in </button>
+        <div id="header">Log in right here</div>
+
+            <form id="formlogin">
+            <div class="form-group">
+                <label for="Email">Email address</label>
+                <input type="email" class="form-control" id="Email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <label for="Pass">Password</label>
+                <input type="password" class="form-control" id="Pass" placeholder="Password">
+            </div>
+
+            <button type="submit" class="btn btn-default">Login</button>
+            <div class="form-group" id="registerbutton">
+                <label for="registernow">Nog geen Account? Registreer hier!</label> <br/>
+                <button routerLink="/register" class="btn btn-default"id="registernow">Register</button>
+            </div>
+
+
+        </form>
         
     `,
     providers: [AuthorizationService]

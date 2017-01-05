@@ -27,11 +27,27 @@ export class AuthorizationService{
           })
           .subscribe(data => {
                 localStorage.setItem('auth_token', data.json()["token"]);
+                localStorage.setItem('user_id', data.json()["_id"]);
                  this.loggedIn = true;
+                 window.location.reload();
           });
 
-          
-        
+  }
+
+  getUserById(id: string, token: string){
+    var url = "https://nameless-harbor-45973.herokuapp.com/user/" + id;
+    var headers = new Headers();
+   
+   headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    headers.append('Authorization',token);
+
+    return this.http
+        .get(url,
+          {
+            headers: headers
+          })
+          .map(data => data.json());
+
   }
 
 

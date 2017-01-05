@@ -29,8 +29,21 @@ var AuthorizationService = (function () {
         })
             .subscribe(function (data) {
             localStorage.setItem('auth_token', data.json()["token"]);
+            localStorage.setItem('user_id', data.json()["_id"]);
             _this.loggedIn = true;
+            window.location.reload();
         });
+    };
+    AuthorizationService.prototype.getUserById = function (id, token) {
+        var url = "https://nameless-harbor-45973.herokuapp.com/user/" + id;
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        headers.append('Authorization', token);
+        return this.http
+            .get(url, {
+            headers: headers
+        })
+            .map(function (data) { return data.json(); });
     };
     AuthorizationService.prototype.logout = function () {
         localStorage.removeItem('auth_token');

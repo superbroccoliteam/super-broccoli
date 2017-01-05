@@ -38,7 +38,7 @@ var LoginComponent = (function () {
     LoginComponent = __decorate([
         core_1.Component({
             selector: 'competitions',
-            template: " \n        <h1>Login</h1>\n        <input id=\"txtEmail\" type=\"text\" placeholder=\"email\" />\n        <input id=\"txtPassword\" type=\"password\" placeholder=\"password\" />\n        <button (click)=\"onClick()\">Log in </button>\n        \n    ",
+            template: " \n        <div id=\"header\">Log in right here</div>\n\n            <form id=\"formlogin\">\n            <div class=\"form-group\">\n                <label for=\"Email\">Email address</label>\n                <input type=\"email\" class=\"form-control\" id=\"Email\" placeholder=\"Email\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"Pass\">Password</label>\n                <input type=\"password\" class=\"form-control\" id=\"Pass\" placeholder=\"Password\">\n            </div>\n\n            <button type=\"submit\" class=\"btn btn-default\">Login</button>\n            <div class=\"form-group\" id=\"registerbutton\">\n                <label for=\"registernow\">Nog geen Account? Registreer hier!</label> <br/>\n                <button routerLink=\"/register\" class=\"btn btn-default\"id=\"registernow\">Register</button>\n            </div>\n\n\n        </form>\n        \n    ",
             providers: [authorization_service_1.AuthorizationService]
         }), 
         __metadata('design:paramtypes', [authorization_service_1.AuthorizationService, router_1.Router])

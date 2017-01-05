@@ -29,6 +29,8 @@ var login_component_1 = require('./components/login/login.component');
 var auth_guard_service_1 = require('./shared/guards/auth-guard.service');
 var profile_component_1 = require('./components/profile/profile.component');
 var authorization_service_1 = require('./components/login/authorization.service');
+var chat_component_1 = require('./shared/chat/chat.component');
+var registration_component_1 = require('./components/registration/registration.component');
 var appRoutes = [
     { path: 'home', component: home_component_1.HomeComponent },
     { path: 'matches', component: matches_component_1.MatchesComponent },
@@ -37,6 +39,7 @@ var appRoutes = [
     { path: 'login', component: login_component_1.LoginComponent },
     { path: 'games', component: games_component_1.GamesComponent },
     { path: 'profile', component: profile_component_1.ProfileComponent, canActivate: [auth_guard_service_1.AuthGuard] },
+    { path: 'register', component: registration_component_1.RegistrationComponent },
     { path: '', component: home_component_1.HomeComponent }
 ];
 var AppModule = (function () {
@@ -65,7 +68,9 @@ var AppModule = (function () {
                 news_item_component_1.NewsItemComponent,
                 competition_component_1.CompetitionComponent,
                 login_component_1.LoginComponent,
-                profile_component_1.ProfileComponent
+                profile_component_1.ProfileComponent,
+                chat_component_1.ChatComponent,
+                registration_component_1.RegistrationComponent
             ],
             providers: [auth_guard_service_1.AuthGuard, authorization_service_1.AuthorizationService],
             bootstrap: [app_component_1.AppComponent]

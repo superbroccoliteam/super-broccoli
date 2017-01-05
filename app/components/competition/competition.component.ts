@@ -13,6 +13,7 @@ import { MatchService } from '../matches/matches.service';
 
             <div class="col-lg-12 panel panel-default paddingpanel">
             <h1>{{ competition?.name }}</h1>
+            <p><button (click)="followCompetition()">Follow competition</button></p>
                 <div class="col-lg-12 panel-heading">
                     Competition details
                 </div>
@@ -189,6 +190,15 @@ export class CompetitionComponent implements OnInit{
     done(responseMatches){
         this.matches = responseMatches;
         console.log(this.matches);
+    }
+
+    followCompetition(){
+        //Controle als de gebruiker is ingelogd, anders doorsturen naar login pagina
+        var userId = localStorage.getItem('user_id');
+        var competitionId = this.competition.id.toString();
+        var token = localStorage.getItem('auth_token');
+
+        this.competitionService.followCompetition(userId,competitionId,token)
     }
 
 }
