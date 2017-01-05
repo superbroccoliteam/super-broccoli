@@ -1,16 +1,17 @@
 import {Component, OnInit} from '@angular/core';;
 import {CompetitionService} from './competition.service';
-import {Competition} from './Competition'
+import {Competition} from './Competition';
 
 @Component({
     selector: 'competitions',
     template: ` 
-        <h1>Competitions</h1>
+    
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
                         <th>Competition</th>
+                        <th>Discipline</th>
                         <th>Size</th>
                         <th>Start date</th>
                         <th>End date</th>
@@ -21,11 +22,12 @@ import {Competition} from './Competition'
                 <tbody>
                     <tr *ngFor="let competition of competitions" >
                         <td>{{ competition.name }}</td>
+                        <td>{{ competition.discipline }}</td>
                         <td>{{ competition.size }}</td>
                         <td>{{ competition.date_start }}</td>
                         <td>{{ competition.date_end }}</td>
                         <td>{{ competition.status }}</td>
-                        <td><a href="#" class="detailslink"><span class="glyphicon glyphicon-info-sign info-icon-details" aria-hidden="true"></span>Details</a></td>
+                        <td><a [routerLink]="['/competition', competition.id]" class="detailslink"><span class="glyphicon glyphicon-info-sign info-icon-details" aria-hidden="true"></span>Details</a></td>
                     </tr>
                 </tbody>
             </table>
@@ -43,6 +45,7 @@ export class CompetitionsComponent{
 
     ngOnInit() { 
         this.getCompetitions(); 
+
     }
 
     getCompetitions(){

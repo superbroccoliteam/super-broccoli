@@ -9,15 +9,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var authorization_service_1 = require('../../components/login/authorization.service');
 var NavbarComponent = (function () {
-    function NavbarComponent() {
+    function NavbarComponent(authorizationService) {
+        this.authorizationService = authorizationService;
     }
+    NavbarComponent.prototype.ngOnInit = function () {
+        //Is er een gebruiker ingelogd?
+        if (this.authorizationService.isLoggedIn()) {
+            this.printUserName();
+        }
+        else {
+            this.username = null;
+        }
+    };
+    //Gebruikersinformatie ophalen
+    NavbarComponent.prototype.printUserName = function () {
+        var _this = this;
+        var userId = localStorage.getItem('user_id');
+        var token = localStorage.getItem('auth_token');
+        this.authorizationService.getUserById(userId, token)
+            .subscribe(function (res) { return _this.handleUsername(res); });
+    };
+    NavbarComponent.prototype.handleUsername = function (res) {
+        this.username = res["nickname"];
+        console.log(this.username);
+    };
     NavbarComponent = __decorate([
         core_1.Component({
             selector: 'navbar',
             templateUrl: 'app/shared/navbar/navbar.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [authorization_service_1.AuthorizationService])
     ], NavbarComponent);
     return NavbarComponent;
 }());

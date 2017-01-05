@@ -29,7 +29,7 @@ export class NewsComponent implements OnInit{
     getNews(){
         this.newsService.getLatestNews()
                     .subscribe(
-                        res => this.news = res.splice(0,5)
+                        res => this.news = res
                     );
     }
 

@@ -1,3 +1,13 @@
+html, body {
+  height: 100%; }
+
+#wrapper {
+  min-height: 100%;
+  position: relative; }
+
+#content {
+  padding-bottom: 100px; }
+
 .navbar-default {
   background-color: #2A2C2B;
   height: 60px; }
@@ -135,9 +145,10 @@
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  max-width: none;
   position: relative;
-  margin: auto; }
+  margin: auto;
+  margin-left: -15px; }
 
 /* Next & previous buttons */
 .prev, .next {
@@ -191,9 +202,6 @@
   display: inline-block;
   transition: background-color 0.6s ease; }
 
-.active, .dot:hover {
-  background-color: #717171; }
-
 /* Fading animation */
 .fading {
   -webkit-animation-name: fade;
@@ -217,3 +225,80 @@
 @media only screen and (max-width: 300px) {
   .prev, .next, .text {
     font-size: 11px; } }
+
+thead {
+  background-color: #2A2C2B;
+  color: white;
+  height: 50px; }
+  thead tr:first-child {
+    height: 50px; }
+    thead tr:first-child th {
+      line-height: 50px; }
+
+.news {
+  margin: 10px 0;
+  min-height: 550px; }
+
+footer {
+  background-color: #2A2C2B;
+  color: #ffffff;
+  height: 75px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 20px; }
+
+#powered {
+  font-size: 0.8em; }
+
+#chat {
+  margin-top: 50px; }
+
+.rooms {
+  float: left;
+  width: 100%;
+  max-height: 300px;
+  padding: 10px;
+  background-color: #2A2C2B;
+  color: white; }
+
+.rooms a {
+  color: white; }
+
+.chatbox {
+  float: left;
+  width: 100%;
+  height: 250px;
+  padding: 10px; }
+
+.conversation {
+  max-height: 200px;
+  overflow: scroll; }
+
+.chattext {
+  width: 80%; }
+
+#header {
+  font-size: 1.8em;
+  margin-left: 45%;
+  margin-top: 20px; }
+
+#formlogin {
+  margin-left: 0; }
+
+.form-group:first-child {
+  margin-top: 10px; }
+
+#registerbutton {
+  margin-top: 10px; }
+
+#formregister {
+  margin-left: 45%; }
+
+#register {
+  margin-bottom: 10px; }
+
+.form-group:first-child {
+  margin-top: 10px; }

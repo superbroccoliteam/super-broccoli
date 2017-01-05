@@ -16,18 +16,6 @@ var MatchesComponent = (function () {
         this.competitionService = competitionService;
         this.matchService = matchService;
     }
-    MatchesComponent.prototype.ngOnInit = function () {
-        this.getCompetitions();
-    };
-    MatchesComponent.prototype.getCompetitions = function () {
-        var _this = this;
-        this.competitionService.getCompetitions()
-            .subscribe(function (response) { return _this.getMatches(response); });
-    };
-    MatchesComponent.prototype.getMatches = function (compRes) {
-        this.matchService.getMatches(compRes)
-            .subscribe(function (response) { return console.log(response); });
-    };
     MatchesComponent = __decorate([
         core_1.Component({
             selector: 'matches',

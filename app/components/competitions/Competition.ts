@@ -7,4 +7,25 @@ export class Competition{
     location: string;
     country: string;
     size: number;
+    organization: string;
+    prize: number;
+    rules: string;
+    website: string;
+    discipline: string;
+    match_type: string;
+    description: string;
+    opponents: Opponents;
+}
+
+export class Opponents{
+    forfeit: boolean;
+    number: number;
+    result: number;
+    score: number;
+    participant: Participant;
+}
+
+export class Participant{
+    id: string;
+    name: string;
 }

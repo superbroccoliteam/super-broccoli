@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'my-app',
@@ -11,8 +11,17 @@ import { Component } from '@angular/core';
       
       <div class="col-lg-3">
         <sidebar></sidebar>
+        <chat></chat>
       </div>
     </div>
   `
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent  { 
+  name = 'Angular'; 
+
+
+  
+
+  
+
+}

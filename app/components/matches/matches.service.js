@@ -14,20 +14,13 @@ require('rxjs/add/operator/map');
 var MatchService = (function () {
     function MatchService(http) {
         this.http = http;
-        this.url = "https://api.toornament.com/v1/tournaments/{tournament_id}/matches?api_key=iTIf7Qaq_YqyV0z76Pw_I0qiJsgY3Jemu53LqMo8Yrs";
     }
     //Alle competities ophalen
-    MatchService.prototype.getMatches = function (competitions) {
-        //Lijst van alle competities als parameter
-        //Alle competities overlopen
-        for (var _i = 0, competitions_1 = competitions; _i < competitions_1.length; _i++) {
-            var competition = competitions_1[_i];
-            //URL voor match samenstellen
-            var url = "https://api.toornament.com/v1/tournaments/" + competition.id + "/matches?api_key=iTIf7Qaq_YqyV0z76Pw_I0qiJsgY3Jemu53LqMo8Yrs";
-            console.log(url);
-            return this.http.get(url)
-                .map(function (res) { return console.log(res); }); //this.matches.push(res.json())
-        }
+    MatchService.prototype.getMatchesOfCompetition = function (competitionId) {
+        //Matches binnen een competitie ophalen
+        var url = "https://api.toornament.com/v1/tournaments/" + competitionId + "/matches?api_key=iTIf7Qaq_YqyV0z76Pw_I0qiJsgY3Jemu53LqMo8Yrs";
+        return this.http.get(url)
+            .map(function (res) { return res.json(); });
     };
     MatchService = __decorate([
         core_1.Injectable(), 

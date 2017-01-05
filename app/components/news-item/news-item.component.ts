@@ -5,10 +5,11 @@ import { NewsItem } from '../news/NewsItem';
     selector: 'news-item',
     template: ` 
     
-    <div class="row">
-         <div class="col-sm-4"><a href="{{ newsItem.url }}" class=""><img src="{{ newsItem.urlToImage }}" class="img-responsive"></a>
+   
+   <div class="news col-lg-4 col-sm-6">
+         <div class="col-lg-12"><a href="{{ newsItem.url }}" class=""><img src="{{ newsItem.urlToImage || 'app/assets/img/IGN-Logo.jpg' }}" class="img-responsive"></a>
             </div>
-            <div class="col-sm-8">
+            <div class="col-lg-12">
                 <h3 class="title"><a href="{{ newsItem.url }}">{{ newsItem.title }}</a></h3>
                 <p class="text-muted">3 december 2016</p>
                 <p>{{ newsItem.description }}</p>
@@ -16,7 +17,7 @@ import { NewsItem } from '../news/NewsItem';
                 <p class="text-muted">Presented by {{ newsItem.author }}</p>
 
             </div>
-    </div>
+   </div>
     
     `
 })

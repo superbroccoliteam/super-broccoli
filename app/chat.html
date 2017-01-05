@@ -1,0 +1,67 @@
+!DOCTYPE html
+html lang=en
+head
+    meta charset=UTF-8
+    titleTitletitle
+head
+body
+script src=httpscdn.socket.iosocket.io-1.4.5.jsscript
+script src=httpsajax.googleapis.comajaxlibsjquery1.6.4jquery.min.jsscript
+script
+    var socket = io.connect('httpsnameless-harbor-45973.herokuapp.com');
+
+    socket.on('connect', function(){
+        socket.emit('adduser', prompt(What's your name));
+    });
+
+    socket.on('updatechat', function (username, data) {
+        $('#conversation').append('b'+username + 'b ' + data + 'br');
+    });
+
+
+    socket.on('updaterooms', function(rooms, current_room) {
+        $('#rooms').empty();
+        $.each(rooms, function(key, value) {
+            if(value == current_room){
+                $('#rooms').append('div' + value + 'div');
+            }
+            else {
+                $('#rooms').append('diva href=# onclick=switchRoom(''+value+'')' + value + 'adiv');
+            }
+        });
+    });
+
+    function switchRoom(room){
+        socket.emit('switchRoom', room);
+    }
+
+     on load of page
+    $(function(){
+         when the client clicks SEND
+        $('#datasend').click( function() {
+            var message = $('#data').val();
+            $('#data').val('');
+            socket.emit('sendchat', message);
+        });
+
+         when the client hits ENTER on their keyboard
+        $('#data').keypress(function(e) {
+            if(e.which == 13) {
+                $(this).blur();
+                $('#datasend').focus().click();
+            }
+        });
+    });
+
+script
+div style=floatleft;width100px;border-right1px solid black;height300px;padding10px;overflowscroll-y;
+    bROOMSb
+    div id=roomsdiv
+div
+div style=floatleft;width300px;height250px;overflowscroll-y;padding10px;
+    div id=conversationdiv
+    input id=data style=width200px; 
+    input type=button id=datasend value=send 
+div
+body
+html

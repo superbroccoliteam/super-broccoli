@@ -9,7 +9,6 @@ import {Component, AfterViewInit} from '@angular/core'
         <slider></slider>
         <news></news>
     
-    
     `
 })
 
