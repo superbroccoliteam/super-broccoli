@@ -8,6 +8,9 @@ const mongoose = require('mongoose'),
             type: String,
             required: true
         },
+        description:{
+          type: String
+        },
         gameId: {
             type: mongoose.Schema.Types.ObjectId,
             ref:'Game',
@@ -17,6 +20,5 @@ const mongoose = require('mongoose'),
             type: String,
             required: true
         }
-
     });
 module.exports = mongoose.model('Teams',gameScheme);

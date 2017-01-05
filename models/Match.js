@@ -10,21 +10,21 @@ const mongoose = require('mongoose'),
         },
         competitionId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Competition'
+            ref: 'Competitions'
         },
         gameId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref:'Game',
+            ref:'Games',
             required: true
         },
         teamOneId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref:'Team',
+            ref:'Teams',
             required: true
         },
         teamTwoId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref:'Team',
+            ref:'Teams',
             required: true
         },
         score: {
@@ -38,12 +38,9 @@ const mongoose = require('mongoose'),
             uppercase: true
         },
         date: {
-            type:mongoose.Schema.Types.Date,
-            required: true
-        },
-        time: {
-          type: mongoose.Schema.Types.Timestamp,
+            type:Date,
             required: true
         }
+
     });
 module.exports = mongoose.model('Matches',matchScheme);

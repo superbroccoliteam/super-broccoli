@@ -8,6 +8,10 @@ const mongoose = require('mongoose'),
             type: String,
             required: true
         },
+        nickname: {
+            type: String,
+            required: true
+        },
         image: {
             type: String
         },

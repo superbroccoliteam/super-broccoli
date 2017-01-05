@@ -26,8 +26,7 @@ const mongoose = require('mongoose'),
             required : true
         },
         sports: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Sports'
+            type: String
         }],
         role: {
             type: String,
@@ -42,11 +41,14 @@ const mongoose = require('mongoose'),
             type: String,
             required: true,
             unique: true
-        }
+        },
+        competitions:[{
+            type: String
+        }]
 
     });
 UserScheme.pre('save', function (next) {
-    var user = this;
+    let user = this;
     if(user.isModified('password')|| user.isNew){
         bcrypt.genSalt(10,function (err,salt) {
             bcrypt.hash(user.password,salt,function (err,hash){
@@ -60,7 +62,7 @@ UserScheme.pre('save', function (next) {
 });
 
 UserScheme.methods.comparePasswords = function (inp, callback) {
-  var user = this;
+  let user = this;
   bcrypt.compare(inp,user.password, function (err,match) {
       if(err){
           return callback(err)
@@ -70,7 +72,7 @@ UserScheme.methods.comparePasswords = function (inp, callback) {
 };
 
 UserScheme.methods.createToken = function (){
-    var user = this;
+    let user = this;
     return jwt.sign({email: user.email, user_id: user._id}, 'NMCT', {expiresIn:1500000});
 };
 
