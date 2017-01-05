@@ -19,21 +19,9 @@ export class MatchesComponent{
 
     constructor (private competitionService: CompetitionService, private matchService: MatchService) {}
 
-    ngOnInit(){
-        this.getCompetitions();
-    }
+   
+   
 
-    getCompetitions(){
-
-         this.competitionService.getCompetitions()
-                .subscribe(response => this.getMatches(response))
-      
-    }
-
-    getMatches(compRes: any){
-        this.matchService.getMatches(compRes)
-            .subscribe(response => console.log(response))
-    }
 
     
 

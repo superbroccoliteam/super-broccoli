@@ -20,7 +20,7 @@ var NewsItemComponent = (function () {
     NewsItemComponent = __decorate([
         core_1.Component({
             selector: 'news-item',
-            template: " \n    \n    <div class=\"row\">\n         <div class=\"col-sm-4\"><a href=\"{{ newsItem.url }}\" class=\"\"><img src=\"{{ newsItem.urlToImage }}\" class=\"img-responsive\"></a>\n            </div>\n            <div class=\"col-sm-8\">\n                <h3 class=\"title\"><a href=\"{{ newsItem.url }}\">{{ newsItem.title }}</a></h3>\n                <p class=\"text-muted\">3 december 2016</p>\n                <p>{{ newsItem.description }}</p>\n\n                <p class=\"text-muted\">Presented by {{ newsItem.author }}</p>\n\n            </div>\n    </div>\n    \n    "
+            template: " \n    \n   \n   <div class=\"news col-lg-4 col-sm-6\">\n         <div class=\"col-lg-12\"><a href=\"{{ newsItem.url }}\" class=\"\"><img src=\"{{ newsItem.urlToImage || 'app/assets/img/IGN-Logo.jpg' }}\" class=\"img-responsive\"></a>\n            </div>\n            <div class=\"col-lg-12\">\n                <h3 class=\"title\"><a href=\"{{ newsItem.url }}\">{{ newsItem.title }}</a></h3>\n                <p class=\"text-muted\">3 december 2016</p>\n                <p>{{ newsItem.description }}</p>\n\n                <p class=\"text-muted\">Presented by {{ newsItem.author }}</p>\n\n            </div>\n   </div>\n    \n    "
         }), 
         __metadata('design:paramtypes', [])
     ], NewsItemComponent);

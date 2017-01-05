@@ -1,6 +1,23 @@
+html, body{
+    height: 100%;
+}
+
+#wrapper{
+    min-height: 100%;
+    position: relative;
+}
+
+#content{
+    padding-bottom: 100px;
+}
+
+
 //Partials
 @import "partials/buttons";
 @import "partials/header";
 @import "partials/sidebar";
 @import "partials/profile";
 @import "partials/slider";
+@import "partials/table";
+@import "partials/news";
+@import "partials/footer";

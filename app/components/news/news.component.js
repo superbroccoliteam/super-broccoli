@@ -20,7 +20,7 @@ var NewsComponent = (function () {
     NewsComponent.prototype.getNews = function () {
         var _this = this;
         this.newsService.getLatestNews()
-            .subscribe(function (res) { return _this.news = res.splice(0, 5); });
+            .subscribe(function (res) { return _this.news = res; });
     };
     NewsComponent = __decorate([
         core_1.Component({

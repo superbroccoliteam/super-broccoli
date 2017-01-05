@@ -2,9 +2,10 @@
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  max-width: none;
   position: relative;
   margin: auto;
+  margin-left: -15px;
 }
 
 /* Next & previous buttons */
@@ -66,7 +67,7 @@
 }
 
 .active, .dot:hover {
-  background-color: #717171;
+  //background-color: #717171;
 }
 
 /* Fading animation */

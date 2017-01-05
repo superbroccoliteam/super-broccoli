@@ -1,0 +1,11 @@
+thead{
+  background-color: #2A2C2B;
+  color:white;
+  height: 50px;
+   tr:first-child{
+       height: 50px;
+       th{
+           line-height: 50px;
+       }
+   }
+}
