@@ -34,6 +34,20 @@ var AuthorizationService = (function () {
             window.location.reload();
         });
     };
+    AuthorizationService.prototype.register = function (first_name, last_name, email, password, nickname, sports) {
+        var body = 'first_name=' + first_name + '&last_name=' + last_name + '&email=' + email + '&password=' + password + '&nickname=' + nickname + '&sports=' + sports;
+        var headers = new http_1.Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+        var url = "https://nameless-harbor-45973.herokuapp.com/authorization/register";
+        this.http
+            .post(this.url, body, {
+            headers: headers
+        })
+            .subscribe(function (data) {
+            console.log(data);
+            window.location.reload();
+        });
+    };
     AuthorizationService.prototype.getUserById = function (id, token) {
         var url = "https://nameless-harbor-45973.herokuapp.com/user/" + id;
         var headers = new http_1.Headers();

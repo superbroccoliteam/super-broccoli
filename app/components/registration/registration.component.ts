@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';;
+import {AuthorizationService} from '../login/authorization.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -18,7 +20,7 @@ import {Component, OnInit} from '@angular/core';;
                 </div>
                 <div class="form-group">
                     <label for="Email">Email address</label>
-                    <input type="email" class="form-control" id="Email" placeholder="Email">
+                    <input type="email" class="form-control" id="txtEmail" placeholder="Email">
                 </div>
                 <div class="form-group">
                     <label for="Pass">Password</label>
@@ -51,7 +53,7 @@ import {Component, OnInit} from '@angular/core';;
                     <input type="text" class="form-control" id="Nickname" placeholder="Gamer69">
                 </div>
 
-                <button id="register" type="submit" class="btn btn-default">Register</button>
+                <button (click)=formSubmit() id="register" type="submit" class="btn btn-default">Register</button>
 
                 <div class="form-group">
                 <label for="loginnow">Already have an account? </label> <br/>
@@ -59,12 +61,34 @@ import {Component, OnInit} from '@angular/core';;
             </div>
             </form>
         
-    `
+    `,
+    providers: [AuthorizationService]
 })
 
 export class RegistrationComponent{
 
-    
+    constructor(private authorizationService: AuthorizationService, private router: Router){}
 
+    formSubmit(){
+        var firstName = (<HTMLInputElement>document.getElementById("FirstName")).value;
+        var lastname = (<HTMLInputElement>document.getElementById("LastName")).value;
+        var email = (<HTMLInputElement>document.getElementById("txtEmail")).value;
+        var password = (<HTMLInputElement>document.getElementById("Pass")).value;
+        var nickname = (<HTMLInputElement>document.getElementById("Nickname")).value;
+
+        var sports = "1,2";
+
+        this.authorizationService.register(
+            firstName,
+            lastname,
+            email,
+            password,
+            nickname,
+            sports
+        )
+
+    }
+
+   
 
 }

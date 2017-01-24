@@ -34,6 +34,26 @@ export class AuthorizationService{
 
   }
 
+register(first_name: string, last_name: string, email: string, password: string, nickname: string, sports: String ){
+      var body = 'first_name='+first_name+'&last_name='+last_name+'&email='+email+'&password='+password+'&nickname='+nickname+'&sports='+sports;
+      var headers = new Headers();
+      headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+      var url = "https://nameless-harbor-45973.herokuapp.com/authorization/register"
+
+      this.http
+        .post(this.url,
+          body, {
+            headers: headers
+          })
+          .subscribe(data => {
+            console.log(data);
+                 window.location.reload();
+          });
+
+  }
+
+
   getUserById(id: string, token: string){
     var url = "https://nameless-harbor-45973.herokuapp.com/user/" + id;
     var headers = new Headers();
