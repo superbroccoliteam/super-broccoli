@@ -127,13 +127,16 @@ import { MatchService } from '../matches/matches.service';
                             </thead>
                             <tbody>
                             <tr *ngFor="let match of matches">
-        
-                                <td>{{ match.date }}</td>
-                                <td>{{ match.opponents[0].participant.name }}</td>
-                                <td>{{ match.opponents[1].participant.name }}</td>
-                                <td>{{ match.status }}</td>
-                                <td>{{ match.opponents[0].score + " - " + match.opponents[1].score}}</td>
-                                <td><a href="#" class="detailslink"><span class="glyphicon glyphicon-info-sign info-icon-details" aria-hidden="true"></span>Details</a></td>
+
+                      
+                                <td   *ngIf="match?.length != 0">{{ match.date }}</td>
+                                <td   *ngIf="match?.length != 0">{{ match.opponents[0].participant.name }}</td>
+                                <td   *ngIf="match?.length != 0">{{ match.opponents[1].participant.name }}</td>
+                                <td   *ngIf="match?.length != 0">{{ match.status }}</td>
+                                <td   *ngIf="match?.length != 0"><span *ngIf="match.opponents[0].score !== null">{{ match.opponents[0].score }}</span>  -   <span *ngIf="match.opponents[1].score !== null">{{ match.opponents[1].score }}</span></td>
+                                <td   *ngIf="match?.length != 0"><a href="#" class="detailslink"><span class="glyphicon glyphicon-info-sign info-icon-details" aria-hidden="true"></span>Details</a></td>
+                    
+                               
                             </tr>
                            
                             </tbody>
